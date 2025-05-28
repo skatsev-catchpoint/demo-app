@@ -1,0 +1,18 @@
+version: '3'
+services:
+  frontend:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: bash -c "npm install && npm start"
+    ports:
+      - "3000:3000"
+  backend:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: bash -c "npm install && node index.js"
+    ports:
+      - "3001:3000"
