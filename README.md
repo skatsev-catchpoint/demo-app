@@ -20,7 +20,7 @@ demo-app/
 
 ## Running with Docker Compose
 
-You can run both the frontend and backend together using Docker Compose.
+You can run both the frontend and backend together using Docker Compose. Docker recommended. 
 
 ### 1. Build and Start the Services
 
