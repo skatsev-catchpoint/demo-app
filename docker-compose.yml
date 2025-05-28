@@ -5,7 +5,7 @@ services:
     build: ./frontend
     container_name: frontend
     expose:
-      - "3001"
+      - "80"
     networks:
       - app-network
 
