@@ -5,7 +5,7 @@ function App() {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
-    fetch("http://localhost:3001/")
+    fetch("/api/")
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.text();
