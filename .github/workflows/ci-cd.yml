@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   build:
@@ -29,3 +30,35 @@ jobs:
 
     - name: Deploy to test environment
       run: docker-compose up -d
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.AWS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Add EC2 host to known_hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.AWS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to EC2 with Docker Compose
+        env:
+          HOST: ${{ secrets.AWS_HOST }}
+          USER: ${{ secrets.AWS_USER }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 $USER@$HOST "
+            cd ~/demo-app &&
+            git fetch origin &&
+            git checkout develop &&
+            git pull &&
+            docker-compose down &&
+            docker-compose up --build -d
+          "
