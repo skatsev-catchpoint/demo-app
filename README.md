@@ -1,3 +1,6 @@
+![Tests](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/test.yml/badge.svg)
+
+
 # Demo App
 
 This project is a simple full-stack demo application with a React frontend and an Express backend. The frontend fetches a message from the backend and displays it.
