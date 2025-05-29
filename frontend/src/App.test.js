@@ -1,4 +1,6 @@
 // filepath: frontend/src/App.test.js
+import '@testing-library/jest-dom';
+
 import { render, screen } from '@testing-library/react';
 import App from './App'; // or './App' if you split components
 
