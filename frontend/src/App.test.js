@@ -1,6 +1,6 @@
 // filepath: frontend/src/App.test.js
 import { render, screen } from '@testing-library/react';
-import App from './index'; // or './App' if you split components
+import App from './App'; // or './App' if you split components
 
 test('renders backend message', () => {
   render(<App />);
