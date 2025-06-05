@@ -60,7 +60,7 @@ jobs:
 
       - name: Run WebPageTest script
         env:
-          CATCHPOINT_TOKEN: ${{ secrets.CATCHPOINT_TOKEN }}
+          CATCHPOINT_TOKEN: ${{ secrets.CATCHPOINT_API_KEY }}
         run: |
           chmod +x .github/workflows/run_wpt.sh
           .github/workflows/run_wpt.sh
