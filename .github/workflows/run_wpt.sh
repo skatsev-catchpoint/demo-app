@@ -1,5 +1,3 @@
-set -x
-
 if [ -z "$CATCHPOINT_TOKEN" ]; then
   echo "ERROR: CATCHPOINT_TOKEN is not set or empty."
   exit 1
