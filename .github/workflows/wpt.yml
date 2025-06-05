@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - develop
   pull_request:
+     - develop
 
 jobs:
   wpt:
