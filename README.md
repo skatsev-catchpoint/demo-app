@@ -1,4 +1,11 @@
 ![Tests](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/test.yml/badge.svg)
+# CI/CD Pipeline Status
+
+
+
+![Tests](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=main&job=test) 
+![CI/CD](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=main&job=ci-cd) 
+![WebPageTest](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=main&job=wpt) 
 
 
 # Demo App
