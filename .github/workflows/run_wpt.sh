@@ -1,5 +1,7 @@
 set -x
 
+echo "${CATCHPOINT_TOKEN:0:1}"
+
 echo "Running WebPageTest with Catchpoint..."
 
 RESPONSE=$(curl -s -X 'POST' \
