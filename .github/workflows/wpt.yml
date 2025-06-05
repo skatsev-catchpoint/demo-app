@@ -1,37 +1,26 @@
-name: Catchpoint WebPageTest
+name: WebPageTest Performance Check
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - develop
+      - main
+  pull_request:
 
 jobs:
-  webpagetest:
+  wpt:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Catchpoint WebPageTest
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies (jq, bc)
+        run: sudo apt-get update && sudo apt-get install -y jq bc
+
+      - name: Run WebPageTest script
         env:
-          CATCHPOINT_TOKEN: ${{ secrets.CATCHPOINT_API_KEY }}
+          # Use GitHub Actions secret for token in production!
+          CATCHPOINT_TOKEN: ${{ secrets.CATCHPOINT_TOKEN }}
         run: |
-          curl -X 'POST' \
-            'https://io.catchpoint.com/api/v4/webpagetest/test' \
-            -H 'accept: application/json' \
-            -H "Authorization: Bearer $CATCHPOINT_TOKEN" \
-            -H 'Content-Type: application/json' \
-            -d '{
-              "url": "https://www.sergeykatsev.com:3000/",
-              "runs": 1,
-              "nodeId": 4790,
-              "connectionType": 11,
-              "deviceType": 22,
-              "deviceResolution": 2,
-              "firstViewOnly": true,
-              "lighthouse": false,
-              "performance": true,
-              "chromiumParameters": {
-                "carbonControl": false,
-                "useDevToolsTrafficShaper": true,
-                "hostResolverRules": "string",
-                "captureDevToolsTimeline": true
-              }
-            }'
+          chmod +x .github/workflows/run_wpt.sh
+          .github/workflows/run_wpt.sh
