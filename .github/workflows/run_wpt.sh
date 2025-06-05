@@ -1,4 +1,5 @@
 set -x
+CATCHPOINT_TOKEN="$1"
 
 echo "${CATCHPOINT_TOKEN:0:1}"
 

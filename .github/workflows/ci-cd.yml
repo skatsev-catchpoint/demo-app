@@ -63,4 +63,4 @@ jobs:
           CATCHPOINT_TOKEN: ${{ secrets.CATCHPOINT_TOKEN }}
         run: |
           chmod +x .github/workflows/run_wpt.sh
-          .github/workflows/run_wpt.sh
+          .github/workflows/run_wpt.sh $CATCHPOINT_TOKEN
