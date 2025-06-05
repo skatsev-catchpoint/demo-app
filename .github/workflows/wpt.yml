@@ -1,0 +1,37 @@
+name: Catchpoint WebPageTest
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  webpagetest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Catchpoint WebPageTest
+        env:
+          CATCHPOINT_TOKEN: ${{ secrets.CATCHPOINT_API_KEY }}
+        run: |
+          curl -X 'POST' \
+            'https://io.catchpoint.com/api/v4/webpagetest/test' \
+            -H 'accept: application/json' \
+            -H "Authorization: Bearer $CATCHPOINT_TOKEN" \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "url": "https://www.sergeykatsev.com:3000/",
+              "runs": 1,
+              "nodeId": 4790,
+              "connectionType": 11,
+              "deviceType": 22,
+              "deviceResolution": 2,
+              "firstViewOnly": true,
+              "lighthouse": false,
+              "performance": true,
+              "chromiumParameters": {
+                "carbonControl": false,
+                "useDevToolsTrafficShaper": true,
+                "hostResolverRules": "string",
+                "captureDevToolsTimeline": true
+              }
+            }'
