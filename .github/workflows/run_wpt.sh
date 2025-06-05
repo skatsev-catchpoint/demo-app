@@ -1,7 +1,9 @@
 set -x
-CATCHPOINT_TOKEN="$1"
 
-echo "${CATCHPOINT_TOKEN:0:1}"
+if [ -z "$CATCHPOINT_TOKEN" ]; then
+  echo "ERROR: CATCHPOINT_TOKEN is not set or empty."
+  exit 1
+fi
 
 echo "Running WebPageTest with Catchpoint..."
 
