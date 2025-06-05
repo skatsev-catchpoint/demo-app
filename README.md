@@ -1,6 +1,8 @@
-![Tests](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=develop&job=test) 
-![CI/CD](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=develop&job=ci-cd) 
-![WebPageTest](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=develop&job=wpt) 
+Tests ![Tests](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=develop&job=test) 
+
+CI/CD ![CI/CD](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=develop&job=ci-cd) 
+
+WebPageTest ![WebPageTest](https://github.com/skatsev-catchpoint/demo-app/actions/workflows/ci-cd.yml/badge.svg?branch=develop&job=wpt) 
 
 
 # Demo App
